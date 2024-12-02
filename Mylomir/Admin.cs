@@ -67,5 +67,13 @@ namespace Mylomir
         {
             this.Close();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ImportAndCopy importAndCopy = new ImportAndCopy();
+            this.Visible = false;
+            importAndCopy.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Mylomir
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -58,7 +59,7 @@ namespace Mylomir
             this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(12, 386);
+            this.button2.Location = new System.Drawing.Point(12, 470);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(327, 55);
             this.button2.TabIndex = 2;
@@ -113,7 +114,7 @@ namespace Mylomir
             this.button4.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(12, 447);
+            this.button4.Location = new System.Drawing.Point(12, 531);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(327, 55);
             this.button4.TabIndex = 15;
@@ -131,12 +132,27 @@ namespace Mylomir
             this.label1.Text = "Администратор";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button7.Location = new System.Drawing.Point(12, 358);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(327, 55);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "Востановление и импорт";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(358, 514);
+            this.ClientSize = new System.Drawing.Size(358, 598);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -166,5 +182,6 @@ namespace Mylomir
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
     }
 }
