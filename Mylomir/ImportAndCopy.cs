@@ -35,7 +35,7 @@ namespace Mylomir
                 MySqlConnection mySqlConnection = new MySqlConnection(con);
                 mySqlConnection.Open();
 
-                string pathFile = Directory.GetCurrentDirectory() + @"\db22.sql";
+                string pathFile = Directory.GetCurrentDirectory() + @"\structure.sql";
                 string textFile = File.ReadAllText(pathFile);
                 MySqlCommand mySqlCommand = new MySqlCommand(textFile, mySqlConnection);
                 mySqlCommand.ExecuteNonQuery();
