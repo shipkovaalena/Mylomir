@@ -98,9 +98,9 @@ namespace Mylomir
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 72);
+            this.pictureBox2.Location = new System.Drawing.Point(534, 126);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(445, 304);
+            this.pictureBox2.Size = new System.Drawing.Size(300, 237);
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
@@ -164,18 +164,19 @@ namespace Mylomir
             // 
             this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(290, 382);
+            this.button3.Location = new System.Drawing.Point(727, 369);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 41);
+            this.button3.Size = new System.Drawing.Size(128, 41);
             this.button3.TabIndex = 14;
             this.button3.Text = "Обновить";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 389);
+            this.textBox3.Location = new System.Drawing.Point(488, 376);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(272, 29);
+            this.textBox3.Size = new System.Drawing.Size(233, 29);
             this.textBox3.TabIndex = 15;
             // 
             // button4
@@ -183,12 +184,13 @@ namespace Mylomir
             this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(16, 429);
+            this.button4.Location = new System.Drawing.Point(488, 424);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(445, 57);
+            this.button4.Size = new System.Drawing.Size(367, 57);
             this.button4.TabIndex = 16;
             this.button4.Text = "Проверить";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Main
             // 
@@ -197,7 +199,7 @@ namespace Mylomir
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(469, 606);
+            this.ClientSize = new System.Drawing.Size(877, 606);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);
