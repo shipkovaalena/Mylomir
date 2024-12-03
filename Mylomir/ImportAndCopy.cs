@@ -88,7 +88,6 @@ namespace Mylomir
                 {
                     string line = reader.ReadLine();
                     string[] values = line.Split(';');
-
                     string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
