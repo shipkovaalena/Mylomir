@@ -99,7 +99,7 @@ namespace Mylomir
                 }
                 mySqlConnection.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Ошибка авторизации!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);                
                 textBox1.Visible = false;
