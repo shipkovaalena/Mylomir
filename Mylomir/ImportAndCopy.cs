@@ -46,9 +46,7 @@ namespace Mylomir
 
                 MessageBox.Show("Структура базы данных успешно восстановлена!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-       
+        }       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -86,19 +84,17 @@ namespace Mylomir
             {
                 string headerLine = reader.ReadLine();
                 string[] headers = headerLine.Split(';');
-                
-                    while (!reader.EndOfStream)
-                    {
-                        string line = reader.ReadLine();
-                        string[] values = line.Split(';');
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    string[] values = line.Split(';');
 
-                        string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
+                    string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
 
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.ExecuteNonQuery();
-                        res++;
-                    }
-               
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    res++;
+                }
             }
             return res;
         }
