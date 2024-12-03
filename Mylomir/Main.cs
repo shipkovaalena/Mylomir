@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Threading;
 
 
 namespace Mylomir
@@ -21,6 +23,8 @@ namespace Mylomir
         string conn = Data.con;
         public string userLogin;
         int count = 1;
+        List<Image> captchaImages = new List<Image>();
+        Random random = new Random();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,13 +83,37 @@ namespace Mylomir
                     MessageBox.Show("Ошибка авторизации! Неправильный логин или пароль.", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox1.Clear();
                     textBox2.Clear();
+                    pictureBox2.Visible = true;
+                    pictureBox1.Visible = false;
+                    pictureBox3.Visible = false;
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    textBox3.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    checkBox1.Visible = false;
+                    GenerateCaptcha();
+                    Thread.Sleep(10000);
                 }
                 mySqlConnection.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                //MessageBox.Show("Ошибка авторизации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка авторизации!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Clear();
+                textBox2.Clear();
+                pictureBox2.Visible = true;
+                pictureBox1.Visible = false;
+                pictureBox3.Visible = false;
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                textBox3.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+                checkBox1.Visible = false;
+                button1.Enabled = false;
+                GenerateCaptcha();
+                Thread.Sleep(10000);
             }
         
         }  
@@ -114,8 +142,11 @@ namespace Mylomir
         }
 
         private void Main_Load(object sender, EventArgs e)
-        {         
-          
+        {
+            pictureBox2.Visible = false;
+            textBox3.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -137,6 +168,32 @@ namespace Mylomir
             {
                 textBox2.UseSystemPasswordChar = true;
             }
+        }
+
+        private void LoadImages()
+        {
+            string pathFile = Directory.GetCurrentDirectory();
+
+            captchaImages.Add(Image.FromFile($@"{pathFile}" + $@"\photos\4GC5.png"));
+            captchaImages.Add(Image.FromFile($@"{pathFile}" + $@"\photos\GFY6.png"));
+            captchaImages.Add(Image.FromFile($@"{pathFile}" + $@"\photos\QW12.png"));
+            captchaImages.Add(Image.FromFile($@"{pathFile}" + $@"\photos\TH58.png"));            
+        }
+        private void GenerateCaptcha()
+        {
+            if (captchaImages.Count > 0)
+            {
+                int index = random.Next(captchaImages.Count);
+                pictureBox2.Image = captchaImages[index];
+            }
+        }
+         private bool CheckCaptcha(string answer)
+        {
+            if (answer == "4GC5" || answer == "GFY6" || answer == "QW12" || answer == "TH58")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
