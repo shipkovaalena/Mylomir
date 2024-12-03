@@ -65,6 +65,8 @@ namespace Mylomir
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -98,9 +100,10 @@ namespace Mylomir
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(534, 126);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 65);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(300, 237);
+            this.pictureBox2.Size = new System.Drawing.Size(445, 318);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
@@ -113,7 +116,6 @@ namespace Mylomir
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "admin";
             this.textBox2.UseSystemPasswordChar = true;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // pictureBox3
@@ -147,7 +149,6 @@ namespace Mylomir
             this.textBox1.Size = new System.Drawing.Size(382, 29);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "admin";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // pictureBox1
@@ -164,7 +165,7 @@ namespace Mylomir
             // 
             this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(727, 369);
+            this.button3.Location = new System.Drawing.Point(329, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 41);
             this.button3.TabIndex = 14;
@@ -174,7 +175,7 @@ namespace Mylomir
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(488, 376);
+            this.textBox3.Location = new System.Drawing.Point(12, 407);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(233, 29);
             this.textBox3.TabIndex = 15;
@@ -184,9 +185,9 @@ namespace Mylomir
             this.button4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(488, 424);
+            this.button4.Location = new System.Drawing.Point(12, 463);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(367, 57);
+            this.button4.Size = new System.Drawing.Size(445, 57);
             this.button4.TabIndex = 16;
             this.button4.Text = "Проверить";
             this.button4.UseVisualStyleBackColor = false;
@@ -199,7 +200,7 @@ namespace Mylomir
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(877, 606);
+            this.ClientSize = new System.Drawing.Size(474, 606);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);

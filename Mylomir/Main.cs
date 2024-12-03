@@ -83,29 +83,38 @@ namespace Mylomir
                 else
                 {
                     MessageBox.Show("Ошибка авторизации! Неправильный логин или пароль.", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Width = 885;
-                    pictureBox1.Enabled = false;
-                    pictureBox3.Enabled = false;
-                    textBox1.Enabled = false;
-                    textBox2.Enabled = false;
-                    checkBox1.Enabled = false;
-                    button1.Enabled = false;
-                    
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    pictureBox1.Visible = false;
+                    pictureBox3.Visible = false;
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    checkBox1.Visible = false;
+                    button1.Visible = false;
+
+                    textBox3.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+
                 }
                 mySqlConnection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка авторизации!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Width = 885;
-                textBox1.Enabled = false;
-                textBox2.Enabled = false;
-                pictureBox1.Enabled = false;
-                pictureBox3.Enabled = false;
-                textBox1.Enabled = false;
-                textBox2.Enabled = false;
-                checkBox1.Enabled = false;
-                button1.Enabled = false;                
+                MessageBox.Show("Ошибка авторизации!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);                
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                pictureBox1.Visible = false;
+                pictureBox3.Visible = false;
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                checkBox1.Visible = false;
+                button1.Visible = false;
+
+                textBox3.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+                pictureBox2.Visible = true;
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -137,8 +146,21 @@ namespace Mylomir
         }
 
         private void Main_Load(object sender, EventArgs e)
-        {           
-            this.Width = 485;
+        {
+            pictureBox1.Visible = true;
+            pictureBox3.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+            checkBox1.Visible = true;
+            button1.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+
+            textBox3.Visible = false;
+            textBox3.Clear();
+            button3.Visible = false;
+            button4.Visible = false;
+            pictureBox2.Visible = false;
         }      
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -184,19 +206,24 @@ namespace Mylomir
            
             bool answer = CheckCaptcha(textBox3.Text);
             if (answer)
-            {
-                this.Width = 485;
-                pictureBox1.Enabled = true;
-                pictureBox3.Enabled = true;
-                textBox1.Enabled = true;
-                textBox2.Enabled = true;
-                checkBox1.Enabled = true;
-                button1.Enabled = true;
-                textBox1.Enabled = true;
-                textBox2.Enabled = true;
+            {                
+                pictureBox1.Visible = true;
+                pictureBox3.Visible = true;
+                textBox1.Visible = true;
+                textBox2.Visible = true;
+                checkBox1.Visible = true;
+                button1.Visible = true;
+                textBox1.Visible = true;
+                textBox2.Visible = true;
+
+                textBox3.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+                pictureBox2.Visible = false;
             }
             else
             {
+                MessageBox.Show("Неверная капча! Ситема будет заблокирована на 10 секунд!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GenerateCaptcha();
                 Thread.Sleep(10000);
             }          
