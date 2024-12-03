@@ -5,14 +5,20 @@
     <Setting Name="host" Type="System.String" Scope="Application">
       <Value Profile="(Default)">10.207.106.12</Value>
     </Setting>
-    <Setting Name="user" Type="System.String" Scope="User">
+    <Setting Name="user" Type="System.String" Scope="Application">
       <Value Profile="(Default)">user22</Value>
     </Setting>
-    <Setting Name="password" Type="System.String" Scope="User">
+    <Setting Name="password" Type="System.String" Scope="Application">
       <Value Profile="(Default)">kk94</Value>
     </Setting>
-    <Setting Name="db" Type="System.String" Scope="User">
+    <Setting Name="db" Type="System.String" Scope="Application">
       <Value Profile="(Default)">db22</Value>
+    </Setting>
+    <Setting Name="loginAdmin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="passwordAdmin" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

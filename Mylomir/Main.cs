@@ -38,6 +38,7 @@ namespace Mylomir
                 DataTable dataTable = new DataTable();
                 mySqlDataAdapter.Fill(dataTable);
 
+                string loginAdmin = Properties.Settings.Default["loginAdmin"].ToString();
                 string paswBd = dataTable.Rows[0].ItemArray.GetValue(5).ToString();
                 Data.role = dataTable.Rows[0].ItemArray.GetValue(6).ToString();
                 //string name = $"{dataTable.Rows[0].ItemArray.GetValue(1)} {dataTable.Rows[0].ItemArray.GetValue(2)} {dataTable.Rows[0].ItemArray.GetValue(3)}";
