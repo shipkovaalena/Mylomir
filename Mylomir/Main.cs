@@ -39,10 +39,22 @@ namespace Mylomir
                 mySqlDataAdapter.Fill(dataTable);
 
                 string loginAdmin = Properties.Settings.Default["loginAdmin"].ToString();
+                string passwordAdmin = Properties.Settings.Default["passwordAdmin"].ToString();
+
+                if (login == loginAdmin && password == passwordAdmin)
+                {
+                    ImportAndCopy admin = new ImportAndCopy();
+                    this.Visible = false;
+                    admin.ShowDialog();
+                    this.Close();
+                }
+
                 string paswBd = dataTable.Rows[0].ItemArray.GetValue(5).ToString();
+
                 Data.role = dataTable.Rows[0].ItemArray.GetValue(6).ToString();
                 //string name = $"{dataTable.Rows[0].ItemArray.GetValue(1)} {dataTable.Rows[0].ItemArray.GetValue(2)} {dataTable.Rows[0].ItemArray.GetValue(3)}";
                 //Data.UserFIO = name;
+               
                 if (password == paswBd)
                 {
                     MessageBox.Show("Успешная авторизация!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -70,9 +82,10 @@ namespace Mylomir
                 }
                 mySqlConnection.Close();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ошибка авторизации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+                //MessageBox.Show("Ошибка авторизации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         
         }  

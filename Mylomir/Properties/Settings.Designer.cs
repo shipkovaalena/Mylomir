@@ -68,15 +68,12 @@ namespace Mylomir.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
         public string passwordAdmin {
             get {
                 return ((string)(this["passwordAdmin"]));
-            }
-            set {
-                this["passwordAdmin"] = value;
             }
         }
     }
