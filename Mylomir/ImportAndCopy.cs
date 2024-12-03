@@ -19,9 +19,11 @@ namespace Mylomir
             InitializeComponent();
         }
         string con = Data.con;
+        
+
         private void button3_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
+            Main admin = new Main();
             this.Visible = false;
             admin.ShowDialog();
             this.Close();
@@ -46,24 +48,7 @@ namespace Mylomir
             }
         }
 
-        private void ImportForm_Load(object sender, EventArgs e)
-        {
-            button3.Enabled = false;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.SelectedIndex = -1;
-
-            comboBox1.Items.Add("Товары");
-            //MySqlConnection mySqlConnection = new MySqlConnection(con);
-            //mySqlConnection.Open();
-            //MySqlCommand mySqlCommand = new MySqlCommand("SHOW TABLES", mySqlConnection);
-            //IDataReader dataReader = mySqlCommand.ExecuteReader();
-
-            //while (dataReader.Read())
-            //{
-            //    comboBox1.Items.Add(dataReader.GetValue(0).ToString());
-            //}
-            //mySqlConnection.Close();
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,6 +64,7 @@ namespace Mylomir
                     string filePath = openFileDialog1.FileName;
                     string tableName = comboBox1.SelectedItem.ToString();
 
+
                     int importRows = ImportCSV(filePath, tableName, mySqlConnection);
                     if (importRows != 0)
                     {
@@ -87,29 +73,32 @@ namespace Mylomir
                     mySqlConnection.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка импортирования данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+                //MessageBox.Show("Ошибка импортирования данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private int ImportCSV(string csvFilePath, string tableName, MySqlConnection connection)
-        {
+        {           
             int res = 0;
             using (StreamReader reader = new StreamReader(csvFilePath))
             {
                 string headerLine = reader.ReadLine();
                 string[] headers = headerLine.Split(';');
+                
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] values = line.Split(';');
 
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    string[] values = line.Split(';');
+                        string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
 
-                    string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-
-                    res += command.ExecuteNonQuery();
-                }
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.ExecuteNonQuery();
+                        res++;
+                    }
+               
             }
             return res;
         }
@@ -122,6 +111,19 @@ namespace Mylomir
         private void ImportAndCopy_Load(object sender, EventArgs e)
         {
             button1.Enabled = false;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.SelectedIndex = -1;
+
+            MySqlConnection mySqlConnection = new MySqlConnection(con);
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand("SHOW TABLES", mySqlConnection);
+            IDataReader dataReader = mySqlCommand.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                comboBox1.Items.Add(dataReader.GetValue(0).ToString());
+            }
+            mySqlConnection.Close();
         }
     }
 }
