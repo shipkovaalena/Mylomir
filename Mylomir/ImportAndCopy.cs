@@ -37,7 +37,7 @@ namespace Mylomir
                 MySqlConnection mySqlConnection = new MySqlConnection(con);
                 mySqlConnection.Open();
 
-                string pathFile = Directory.GetCurrentDirectory() + @"\structure.sql";
+                string pathFile = Directory.GetCurrentDirectory() + @"\db22.sql";
                 string textFile = File.ReadAllText(pathFile);
                 MySqlCommand mySqlCommand = new MySqlCommand(textFile, mySqlConnection);
                 mySqlCommand.ExecuteNonQuery();
@@ -60,6 +60,7 @@ namespace Mylomir
                     mySqlConnection.Open();
 
                     string filePath = openFileDialog1.FileName;
+                    File.ReadAllText(filePath);
                     string tableName = comboBox1.SelectedItem.ToString();
 
 
@@ -84,10 +85,12 @@ namespace Mylomir
             {
                 string headerLine = reader.ReadLine();
                 string[] headers = headerLine.Split(';');
+                
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
                     string[] values = line.Split(';');
+                    
                     string query = $"INSERT INTO {tableName} ({string.Join(",", headers)}) VALUES ({string.Join(",", values)})";
 
                     MySqlCommand command = new MySqlCommand(query, connection);

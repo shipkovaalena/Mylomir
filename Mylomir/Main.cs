@@ -220,6 +220,7 @@ namespace Mylomir
                 button3.Visible = false;
                 button4.Visible = false;
                 pictureBox2.Visible = false;
+                textBox3.Clear();
             }
             else
             {
