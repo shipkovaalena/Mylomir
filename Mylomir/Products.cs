@@ -381,6 +381,7 @@ namespace Mylomir
         {
             countPage = (int)Math.Ceiling(Convert.ToDouble(count) / 20);
             label1.Text = countPageNow + "/" + countPage;
+
            
         }
     }
