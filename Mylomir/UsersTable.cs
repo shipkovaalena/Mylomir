@@ -132,6 +132,35 @@ namespace Mylomir
             command.ExecuteNonQuery();
             connection.Close();
         }
-       
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                string val = e.Value.ToString();
+
+                switch (dataGridView1.Columns[e.ColumnIndex].Name)
+                {
+                    case "Имя":
+                    case "Отчество":
+                        int lenc = val.Length;
+                        int f = lenc / 3;
+                        e.Value = val.Substring(0, f) + "***" + val.Substring(lenc - 2);
+                        break;
+
+                    case "Фамилия":
+                        int lenn = val.Length;
+                        int n = lenn / 2;
+                        e.Value = val.Substring(0, n) + "***" + val.Substring(lenn- 2);
+                        break;
+
+                    case "Логин":
+                        int len = val.Length;
+                        int y = len / 2;
+                        e.Value = val.Substring(0, y) + "***";
+                        break;
+                }
+            }
+        }
     }
 }

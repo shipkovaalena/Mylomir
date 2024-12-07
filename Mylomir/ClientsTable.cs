@@ -135,15 +135,6 @@ namespace Mylomir
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if ( dataGridView1.Columns[e.ColumnIndex].Name == "UserName" || dataGridView1.Columns[e.ColumnIndex].Name == "UserPatronymic")
-            //{
-            //    if (e.Value != null)
-            //    {
-            //        string val = e.Value.ToString();
-            //        e.Value = val[0];
-            //    }                
-            //}
-
             if (e.Value != null)
             {
                 string val = e.Value.ToString();
