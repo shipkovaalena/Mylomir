@@ -206,6 +206,7 @@ namespace Mylomir
             this.button4.TabIndex = 32;
             this.button4.Text = "<<";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -217,6 +218,7 @@ namespace Mylomir
             this.button5.TabIndex = 33;
             this.button5.Text = ">>";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Products
             // 
