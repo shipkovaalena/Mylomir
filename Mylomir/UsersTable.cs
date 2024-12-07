@@ -15,6 +15,17 @@ namespace Mylomir
         public UsersTable()
         {
             InitializeComponent();
+            // Инициализация таймера
+            timer1 = new Timer();
+            timer1.Interval = 30000; // 30 секунд
+            timer1.Tick += timer1_Tick;
+
+            // Запуск таймера
+            timer1.Start();
+
+            // Подписка на события активности
+            this.MouseMove += ResetInactivityTimer;
+            this.KeyPress += ResetInactivityTimer;
         }
         string con = Data.con;
         string role = Data.role;
@@ -161,6 +172,36 @@ namespace Mylomir
                         break;
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Блокировка системы и перенаправление на форму авторизации
+            timer1.Stop(); // Остановите таймер
+            this.Hide(); // Скрыть основную форму
+
+            using (Admin loginForm = new Admin())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Если авторизация успешна, показываем основную форму снова
+                    this.Show();
+                }
+                else
+                {
+                    // Если авторизация не успешна, закрываем приложение
+                    Application.Exit();
+                }
+            }
+        }
+
+
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            // Сброс таймера активности
+            timer1.Stop();
+            timer1.Start();
+
         }
     }
 }
