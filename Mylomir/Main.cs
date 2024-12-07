@@ -44,16 +44,16 @@ namespace Mylomir
                 DataTable dataTable = new DataTable();
                 mySqlDataAdapter.Fill(dataTable);
 
-                string loginAdmin = Properties.Settings.Default["loginAdmin"].ToString();
-                string passwordAdmin = Properties.Settings.Default["passwordAdmin"].ToString();
+                //string loginAdmin = Properties.Settings.Default["loginAdmin"].ToString();
+                //string passwordAdmin = Properties.Settings.Default["passwordAdmin"].ToString();
 
-                if (login == loginAdmin && password == passwordAdmin)
-                {
-                    ImportAndCopy admin = new ImportAndCopy();
-                    this.Visible = false;
-                    admin.ShowDialog();
-                    this.Close();
-                }
+                //if (login == loginAdmin && password == passwordAdmin)
+                //{
+                //    ImportAndCopy admin = new ImportAndCopy();
+                //    this.Visible = false;
+                //    admin.ShowDialog();
+                //    this.Close();
+                //}
 
                 string paswBd = dataTable.Rows[0].ItemArray.GetValue(5).ToString();
 

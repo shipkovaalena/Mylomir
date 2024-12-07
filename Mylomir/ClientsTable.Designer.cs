@@ -58,7 +58,7 @@ namespace Mylomir
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(12, 622);
+            this.button1.Location = new System.Drawing.Point(12, 621);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(241, 56);
             this.button1.TabIndex = 13;
@@ -111,7 +111,7 @@ namespace Mylomir
             // 
             // ClientsTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1127, 690);
