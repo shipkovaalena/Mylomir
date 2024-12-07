@@ -132,5 +132,38 @@ namespace Mylomir
         {
           
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            //if ( dataGridView1.Columns[e.ColumnIndex].Name == "UserName" || dataGridView1.Columns[e.ColumnIndex].Name == "UserPatronymic")
+            //{
+            //    if (e.Value != null)
+            //    {
+            //        string val = e.Value.ToString();
+            //        e.Value = val[0];
+            //    }                
+            //}
+
+            if (e.Value != null)
+            {
+                string val = e.Value.ToString();
+
+                switch (dataGridView1.Columns[e.ColumnIndex].Name)
+                {
+                    case "ClientSurname":
+                    case "ClientName":
+                    case "ClientPatronumic":
+                        int lenc = val.Length;
+                        int f = lenc / 3;
+                        e.Value = val.Substring(0, f) + "***" + val.Substring(lenc - 2);
+                        break;
+
+                    case "ClientNumberPhone":
+                        int len = val.Length;
+                        e.Value = val.Substring(0, 3) + "***" + val.Substring(len - 5);
+                        break;
+                }
+            }
+        }
     }
 }
